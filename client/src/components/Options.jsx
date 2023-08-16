@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {Button,Textfield,Grid,Typography,Container,Paper} from "@material-ui/core";
+import React, { useState, useContext } from 'react'
+import {Button,TextField,Grid,Typography,Container,Paper} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {Assignment,Phone,PhoneDisabled} from "@material-ui/icons";
@@ -45,7 +45,27 @@ const Options = ({children}) => {
     <Container className={classes.container}>
         <Paper elevation={10} className={classes.paper}>
             <form className={classes.root} noValidate autoComplete='off'>
-
+              <Grid container className={classes.gridContainer}>
+                <Grid item xs={12} md={6} className={classes.padding}>
+                  <Typography gutterBottom variant="h6">  Account info</Typography>
+                  <TextField label="Name" value={name} onChange={(e)=>setName(e.target.value)} fullWidth/>
+                  <CopyToClipboard text={me} className={classes.margin}>
+                    <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize='large'/>}>
+                    Copy Your ID
+                    </Button>
+                  </CopyToClipboard>  
+                </Grid>
+                
+                <Grid item xs={12} md={6} className={classes.padding}>
+                  <Typography gutterBottom variant="h6">  Account info</Typography>
+                  <TextField label="Name" value={name} onChange={(e)=>setName(e.target.value)} fullWidth/>
+                  <CopyToClipboard text={me} className={classes.margin}>
+                    <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize='large'/>}>
+                    Copy Your ID
+                    </Button>
+                  </CopyToClipboard>  
+                </Grid>
+              </Grid>
             </form>
         </Paper>
              Options{children}
